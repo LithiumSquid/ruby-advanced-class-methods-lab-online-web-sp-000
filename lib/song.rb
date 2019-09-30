@@ -42,13 +42,18 @@ def Song.alphabetical
 end
 
 def Song.new_from_filename(filename)
-    x = self.new 
-    x.name = filename.split(/[^a-zA-Z\s]|\s-\s/)[1] 
-    x.artist_name = filename.split(/[^a-zA-Z\s]|\s-\s/)[0]
-    x
+    song = self.new 
+    song.name = filename.split(/[^a-zA-Z\s]|\s-\s/)[1] 
+    song.artist_name = filename.split(/[^a-zA-Z\s]|\s-\s/)[0]
+    song
 end
 
 def Song.create_from_filename(filename)
+    song = self.new 
+    song.name = filename.split(/[^a-zA-Z\s]|\s-\s/)[1] 
+    song.artist_name = filename.split(/[^a-zA-Z\s]|\s-\s/)[0]
+    song.save
+    song
 end
 
 def Song.destroy_all
