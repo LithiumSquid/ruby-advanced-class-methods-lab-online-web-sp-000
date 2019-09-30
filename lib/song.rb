@@ -38,7 +38,7 @@ class Song
 end
 
 def Song.alphabetical
-  self.all.sort_by{|a, b| a <=> b}
+  self.all.sort.map{|a, b| a <=> b}
 end
 
 def Song.new_from_filename(filename)
