@@ -42,6 +42,10 @@ def Song.alphabetical
 end
 
 def Song.new_from_filename(filename)
+    x = self.new 
+    x.name = filename.split(/[^a-zA-Z\s]|\s-\s/)[1] 
+    x.artist_name = filename.split(/[^a-zA-Z\s]|\s-\s/)[0]
+    x
 end
 
 def Song.create_from_filename(filename)
